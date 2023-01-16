@@ -1,0 +1,37 @@
+void setup() {
+  Serial.begin(9600);
+  Serial.println("-------- Welcome to NODE_MCU's WOLD ---------");
+  pinMode(25, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(12, INPUT);// for pulldown
+  pinMode(2, INPUT);//for pullup
+}
+
+void loop() {
+  int x = digitalRead(12);
+  int y = digitalRead(2);
+if(x == 0)
+{
+  digitalWrite(25, LOW);
+   Serial.println("PULLDOWN LED IS OFF !");
+   delay(1000);
+}
+else
+{
+  digitalWrite(25, HIGH);
+  Serial.println("PULLDOWN LED IS ON !");
+  delay(1000);
+}
+if(y == 1)
+{
+  digitalWrite(4, LOW);
+  Serial.println("PULLUP LED IS OFF !");
+  delay(1000);
+}
+else
+{
+  digitalWrite(4, HIGH);
+  Serial.println("PULLUP LED IS ON !");
+  delay(1000);
+}
+}
